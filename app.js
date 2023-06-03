@@ -95,3 +95,5 @@ async function handleUpdate(newObj){
         alert(`An error occurred: ${error}`);
       }
 }
+
+async function handleDelete(id){}
