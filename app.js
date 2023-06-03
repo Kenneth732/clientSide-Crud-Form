@@ -79,3 +79,19 @@ async function handlePost(newObj){
       }
 }
 
+async function handleUpdate(newObj){
+    try{
+        const response = await fetch(`http://localhost:3000/dataRender/${newObj.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type' : 'application/json'
+            },body:JSON.stringify(newObj)
+        });
+        if(response.ok){
+            throw new Error('Failed to adopt user.');
+        }
+    } catch (error) {
+        console.error(error);
+        alert(`An error occurred: ${error}`);
+      }
+}
