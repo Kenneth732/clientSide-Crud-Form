@@ -16,3 +16,32 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
 });
 
 
+async function handleRenderOneUser(user){
+    try{
+        let card = document.querySelector('div')
+        card.className = 'card'
+        card.innerHTML = `
+        <div class="image-list">
+          <img src="${user.image}" class="users">
+        </div>
+        <br>
+        <div class="content">
+            <h4>${user.name}</h3>
+            <p class="text-gray-700 text-base">
+              $ <span class="donation-count">${user.donation}</span> :Donation
+            </p>
+                <br>
+                <p>${user.description}</p>
+                <hr>
+        </div>
+        <div class="buttons">
+            <button id="donate">Donate $10</button>
+            <button id="set_free">Set free</button>
+        </div>
+          `;
+          document.querySelector('#user-list').appendChild(card);
+    }catch(error){
+        console.error(error)
+        alert(`An error occurred: ${error}`);
+    }
+}
