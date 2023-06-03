@@ -42,3 +42,11 @@ function renderOnePhoto(photo){
       document.querySelector('#photo-list').appendChild(card)
 }
 
+function handleGetAll(){
+    fetch('http://localhost:3000/dataRender')
+    .then((res) => res.json())
+    // .then(userData => userData.map(user => handleRender(user)))
+    .then(userData => userData.forEach(user => renderOnePhoto(user)))
+    .catch(error => console.error(error))
+}
+
