@@ -96,4 +96,16 @@ async function handleUpdate(newObj){
       }
 }
 
-async function handleDelete(id){}
+async function handleDelete(id){
+    try{
+        const response = await fetch(`http://localhost:3000/dataRender/${id}`, {
+            method: 'DELETE'
+        });
+        if (response.ok){
+            throw new Error('Failed to delete user.');
+        }
+    } catch (error) {
+        console.error(error);
+        alert(`An error occurred: ${error}`);
+      }
+}
