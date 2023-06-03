@@ -33,6 +33,12 @@ function renderOnePhoto(photo){
         <button id="set_free">Set free</button>
     </div>
       `;
+      card.querySelector('#donate').addEventListener('click', () =>{
+        photo.donation += 10
+        card.querySelector('span').textContent = photo.donation
+        handleUpdate(photo)
+      });
 
+      document.querySelector('#photo-list').appendChild(card)
 }
 
