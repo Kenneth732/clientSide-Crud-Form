@@ -59,3 +59,23 @@ async function handleFetch(){
         alert(`An error occurred: ${error}`);
     }
 }
+
+async function handlePost(newObj){
+    try{
+        const response = await fetch(`http://localhost:3000/dataRender`, {
+            method: "POST",
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body:JSON.stringify(newObj)
+        }); if(! response.ok){
+            throw new Error('Failed to adopt user.');
+        }
+        const user = await response.json();
+        return user;
+    } catch (error) {
+        console.error(error);
+        alert(`An error occurred: ${error}`);
+      }
+}
+
