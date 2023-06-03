@@ -70,3 +70,34 @@ function handleUpdate(newData){
         body:JSON.stringify(photoObj)
     }).then((res) => res.json()).then((photo) => console.log(photo))
 }
+
+function handleDelete(id){
+    fetch(`http://localhost:3000/picData/${id}`, {
+        method: 'DELETE',
+        headers:{
+            'Content-Type' : 'application/json'
+        }
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Failed to delete photo data');
+        }
+        return response.json();
+    })
+    .then((data) => {
+        console.log('Photo data deleted successfully:', data);
+        // remove the deleted card from the DOM
+        const cardToRemove = document.querySelector(`li[data-id="${id}"]`);
+        if (cardToRemove) {
+            cardToRemove.remove();
+        }
+    })
+    .catch((error) => {
+        console.error('Failed to delete photo data:', error);
+    });
+}
+
+function handleInitialize(){
+    handleGetAll();
+}
+handleInitialize();
