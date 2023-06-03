@@ -45,3 +45,17 @@ async function handleRenderOneUser(user){
         alert(`An error occurred: ${error}`);
     }
 }
+
+async function handleFetch(){
+    try{
+        const response = await fetch('http://localhost:3000/dataRender')
+        if(! response.ok){
+            throw Error('Failed to fetch user data.')
+        }
+        const userData = await response.json()
+        userData.forEach((user) => handleRenderOneUser(user))
+    } catch (error) {
+        console.error(error);
+        alert(`An error occurred: ${error}`);
+    }
+}
