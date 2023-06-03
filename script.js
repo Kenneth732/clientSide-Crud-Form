@@ -50,3 +50,23 @@ function handleGetAll(){
     .catch(error => console.error(error))
 }
 
+function handlePost(newData){
+    fetch('http://localhost:3000/dataRender', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body:JSON.stringify(newData)
+    }).then((res) => res.json())
+    .then(userData => console.log(userData));
+}
+
+function handleUpdate(newData){
+    fetch(`http://localhost:3000/photoData/${newData.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body:JSON.stringify(photoObj)
+    }).then((res) => res.json()).then((photo) => console.log(photo))
+}
