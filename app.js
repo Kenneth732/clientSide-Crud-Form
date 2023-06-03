@@ -109,3 +109,9 @@ async function handleDelete(id){
         alert(`An error occurred: ${error}`);
       }
 }
+
+
+function initialize(){
+    renderUserData();
+  }
+  initialize();
