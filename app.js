@@ -1,6 +1,6 @@
-document.querySelector('#form').addEventListener('submit', async (e) => {
+document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    try{
+    try {
         let newObj = {
             name: e.target.name.value,
             image: e.target.image.value,
@@ -9,16 +9,16 @@ document.querySelector('#form').addEventListener('submit', async (e) => {
         }
         const newUser = await handlePost(newObj)
         handleRenderOneUser(newObj)
-    }catch(error){
+    } catch (error) {
         console.error(error)
         alert(`An error occurred: ${error}`);
     }
 });
 
 
-async function handleRenderOneUser(user){
-    try{
-        let card = document.querySelector('div')
+async function handleRenderOneUser(user) {
+    try {
+        let card = document.querySelector('li')
         card.className = 'card'
         card.innerHTML = `
         <div class="image-list">
@@ -39,36 +39,36 @@ async function handleRenderOneUser(user){
             <button id="set_free">Set free</button>
         </div>
           `;
-          document.querySelector('#user-list').appendChild(card);
-    }catch(error){
+        document.querySelector('#user-list').appendChild(card);
+    } catch (error) {
         console.error(error)
         alert(`An error occurred: ${error}`);
     }
 }
 
-async function handleFetch(){
-    try{
-        const response = await fetch('http://localhost:3000/dataRender')
-        if(! response.ok){
-            throw Error('Failed to fetch user data.')
+async function handleFetch() {
+    try {
+        const response = await fetch('http://localhost:3000/dataRender');
+        if (!response.ok) {
+            throw new Error('Failed to fetch user data.');
         }
-        const userData = await response.json()
-        userData.forEach((user) => handleRenderOneUser(user))
+        const userData = await response.json();
+        userData.forEach((user) => renderOneUser(user));
     } catch (error) {
         console.error(error);
         alert(`An error occurred: ${error}`);
     }
 }
 
-async function handlePost(newObj){
-    try{
+async function handlePost(newObj) {
+    try {
         const response = await fetch(`http://localhost:3000/dataRender`, {
             method: "POST",
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             },
-            body:JSON.stringify(newObj)
-        }); if(! response.ok){
+            body: JSON.stringify(newObj)
+        }); if (!response.ok) {
             throw new Error('Failed to adopt user.');
         }
         const user = await response.json();
@@ -76,30 +76,30 @@ async function handlePost(newObj){
     } catch (error) {
         console.error(error);
         alert(`An error occurred: ${error}`);
-      }
+    }
 }
 
-async function handleUpdate(newObj){
-    try{
+async function handleUpdate(newObj) {
+    try {
         const response = await fetch(`http://localhost:3000/dataRender/${newObj.id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type' : 'application/json'
-            },body:JSON.stringify(newObj)
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify(newObj)
         });
-        if(response.ok){
+        if (response.ok) {
             throw new Error('Failed to adopt user.');
         }
     } catch (error) {
         console.error(error);
         alert(`An error occurred: ${error}`);
-      }
+    }
 }
 
 //   Handle Delete
 async function handleDelete(id) {
     try {
-        const response = await fetch(`http://localhost:3000/userData/${id}`, {
+        const response = await fetch(`http://localhost:3000/dataRender/${id}`, {
             method: 'DELETE',
         });
         if (!response.ok) {
@@ -109,9 +109,9 @@ async function handleDelete(id) {
         console.error(error);
         alert(`An error occurred: ${error}`);
     }
-  }
-  
-  function initialize(){
-    renderUserData();
-  }
-  initialize();
+}
+
+function initialize() {
+    handleFetch();
+}
+initialize();

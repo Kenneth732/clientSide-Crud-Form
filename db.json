@@ -76,6 +76,13 @@
       "image": "/meta/p10.jpg",
       "description": "",
       "donation": 300
+    },
+    {
+      "name": "Kenneth Mburu",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6576abee-d95c-4c5d-bc51-ef6b68614b82/dfn5rhy-ce87ffb0-fdc0-419f-bc09-a8cbb97d9650.png/v1/fill/w_1095,h_730,q_70,strp/a_beautiful_ultra_realistic_elsa_glowing_by_mistressaipro_dfn5rhy-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzY1NzZhYmVlLWQ5NWMtNGM1ZC1iYzUxLWVmNmI2ODYxNGI4MlwvZGZuNXJoeS1jZTg3ZmZiMC1mZGMwLTQxOWYtYmMwOS1hOGNiYjk3ZDk2NTAucG5nIiwid2lkdGgiOiI8PTE1MzYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ccyqpdrI-YXwlnPYXmzG5P9HuNH4oUDSAKYM7v8kbSs",
+      "description": "",
+      "donation": 0,
+      "id": 11
     }
   ]
 }
